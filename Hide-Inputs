@@ -1,0 +1,24 @@
+Hide Prompt Inputs
+from smartygpt import SmartyGPT, Models, available_contexts
+
+Manual prompts
+s = SmartyGPT(prompt="DoctorAdvice", config_file=None)
+s.api_key = "XXXXXXXXXXXX"  # INPUT HERE YOUR APY KEY (For security reasons we are not loading a config_file, so we have to input the API KEY manually)
+result = s.wrapper("Can Vitamin D cure COVID-19?")
+print(result)
+
+Awesome prompts
+s = SmartyGPT(model=Models.GPT4, prompt="Rapper", config_file=None)
+s.api_key = "XXXXXXXXXXXX"  # INPUT HERE YOUR APY KEY (For security reasons we are not loading a config_file, so we have to input the API KEY manually)
+print("Context:", s.get_context())
+result = s.wrapper("Rap in the same style as Eminem")
+print(result)
+
+Custom prompts
+s = SmartyGPT(model=Models.FlanT5, prompt="perplexity", config_file=None) 
+print("Context:", s.get_context())
+print()
+result = s.wrapper("Continue the sentence...")
+print(result)
+Check pre-installed contexts
+available_contexts()
